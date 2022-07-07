@@ -187,6 +187,7 @@ type klusterletConfig struct {
 	RegistrationImage         string
 	WorkImage                 string
 	ClusterName               string
+	ReplaceByCluseterID       bool
 	ExternalServerURL         string
 	HubKubeConfigSecret       string
 	BootStrapKubeConfigSecret string
@@ -232,6 +233,7 @@ func (n *klusterletController) sync(ctx context.Context, controllerContext facto
 		RegistrationImage:         klusterlet.Spec.RegistrationImagePullSpec,
 		WorkImage:                 klusterlet.Spec.WorkImagePullSpec,
 		ClusterName:               klusterlet.Spec.ClusterName,
+		ReplaceByCluseterID:       true,
 		BootStrapKubeConfigSecret: helpers.BootstrapHubKubeConfig,
 		HubKubeConfigSecret:       helpers.HubKubeConfig,
 		ExternalServerURL:         getServersFromKlusterlet(klusterlet),

@@ -46,6 +46,9 @@ spec:
           - "/registration"
           - "agent"
           - "--cluster-name={{ .ClusterName }}"
+          {{if .ReplaceByClusterID}}
+          - "--replace-by-cluster-id={{ .ReplaceByClusterID }}"
+          {{end}}
           - "--bootstrap-kubeconfig=/spoke/bootstrap/kubeconfig"
           {{ if gt (len .RegistrationFeatureGates) 0 }}
           {{range .RegistrationFeatureGates}}
