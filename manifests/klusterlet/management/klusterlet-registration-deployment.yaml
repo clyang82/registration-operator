@@ -47,7 +47,7 @@ spec:
           - "agent"
           - "--cluster-name={{ .ClusterName }}"
           {{if .ReplaceByClusterID}}
-          - "--replace-by-cluster-id={{ .ReplaceByClusterID }}"
+          - "--replace-by-cluster-id=true"
           {{end}}
           - "--bootstrap-kubeconfig=/spoke/bootstrap/kubeconfig"
           {{ if gt (len .RegistrationFeatureGates) 0 }}
